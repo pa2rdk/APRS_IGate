@@ -42,9 +42,19 @@
 			<location>/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32</location>
 		</link>
 		<link>
+			<name>libraries/ESP32EEPROM</name>
+			<type>2</type>
+			<location>/Users/robertdekok/Library/Mobile Documents/com~apple~CloudDocs/ARDUINO/libraries/ESP32EEPROM</location>
+		</link>
+		<link>
 			<name>libraries/SPI</name>
 			<type>2</type>
 			<location>/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/libraries/SPI</location>
+		</link>
+		<link>
+			<name>libraries/TinyLoraESP</name>
+			<type>2</type>
+			<location>/Users/robertdekok/Library/Mobile Documents/com~apple~CloudDocs/ARDUINO/libraries/TinyLoraESP</location>
 		</link>
 		<link>
 			<name>libraries/WiFi</name>

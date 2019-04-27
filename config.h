@@ -1,11 +1,14 @@
 // Configure your AirGate in this file.
 
 // Set your WiFi info
-#define mySSID "PI4RAZ"
-#define PASS "PI4RAZ_Zoetermeer"
+//#define mySSID "PI4RAZ"
+//#define PASS "PI4RAZ_Zoetermeer"
 
 //#define mySSID "iPhone van Robert"
 //#define PASS "0919932003"
+
+#define mySSID "MARODEKExtender"
+#define PASS "0919932003"
 
 // Set your callsign-SID:
 #define CALLSIGN "PA2RDK-11"
@@ -37,9 +40,11 @@
 #define aprsport 14580
 
 // Software version information, for login and position packet.
-#define VERSION "Arduino_AirGate_TCP"
-#define INFO "Arduino AirGate IGATE"
+#define VERSION "Arduino_RAZ_IGATE_TCP"
+#define INFO "Arduino RAZ IGATE"
 
 // APRS destination, which indicates the APRS device being used:
 // This one identifies Argent Data products.
 #define DESTINATION "APRAZ1"
+
+

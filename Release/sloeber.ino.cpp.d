@@ -120,6 +120,9 @@ sloeber.ino.cpp.o: ../sloeber.ino.cpp \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/HardwareSerial.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Esp.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h \
+ /Users/robertdekok/Library/Mobile\ Documents/com~apple~CloudDocs/ARDUINO/libraries/ESP32EEPROM/src/EEPROM.h \
+ /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/spi_flash/esp_partition.h \
+ /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/spi_flash/esp_spi_flash.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/libraries/SPI/src/SPI.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/esp32-hal-spi.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/libraries/WiFi/src/WiFi.h \
@@ -176,7 +179,8 @@ sloeber.ino.cpp.o: ../sloeber.ino.cpp \
  /Users/robertdekok/Library/Mobile\ Documents/com~apple~CloudDocs/ARDUINO/libraries/esp8266-oled-ssd1306-master/src/SSD1306Wire.h \
  /Users/robertdekok/Library/Mobile\ Documents/com~apple~CloudDocs/ARDUINO/libraries/esp8266-oled-ssd1306-master/src/OLEDDisplay.h \
  /Users/robertdekok/Library/Mobile\ Documents/com~apple~CloudDocs/ARDUINO/libraries/esp8266-oled-ssd1306-master/src/OLEDDisplayFonts.h \
- ../config.h ../APRS_IGate.ino
+ /Users/robertdekok/Library/Mobile\ Documents/com~apple~CloudDocs/ARDUINO/libraries/TinyLoraESP/TinyLoRa.h \
+ ../APRS_IGate.ino
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Arduino.h:
 
@@ -420,6 +424,12 @@ sloeber.ino.cpp.o: ../sloeber.ino.cpp \
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h:
 
+/Users/robertdekok/Library/Mobile\ Documents/com~apple~CloudDocs/ARDUINO/libraries/ESP32EEPROM/src/EEPROM.h:
+
+/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/spi_flash/esp_partition.h:
+
+/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/spi_flash/esp_spi_flash.h:
+
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/libraries/SPI/src/SPI.h:
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/esp32-hal-spi.h:
@@ -532,6 +542,6 @@ sloeber.ino.cpp.o: ../sloeber.ino.cpp \
 
 /Users/robertdekok/Library/Mobile\ Documents/com~apple~CloudDocs/ARDUINO/libraries/esp8266-oled-ssd1306-master/src/OLEDDisplayFonts.h:
 
-../config.h:
+/Users/robertdekok/Library/Mobile\ Documents/com~apple~CloudDocs/ARDUINO/libraries/TinyLoraESP/TinyLoRa.h:
 
 ../APRS_IGate.ino:

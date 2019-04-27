@@ -37,7 +37,9 @@ SUBDIRS := \
 . \
 core/core \
 core/core/libb64 \
+libraries/ESP32EEPROM/src \
 libraries/SPI/src \
+libraries/TinyLoraESP \
 libraries/WiFi/src \
 libraries/Wire/src \
 libraries/esp8266-oled-ssd1306-master/src \

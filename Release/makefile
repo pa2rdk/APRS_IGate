@@ -12,7 +12,9 @@ RM := rm -f
 -include libraries/esp8266-oled-ssd1306-master/src/subdir.mk
 -include libraries/Wire/src/subdir.mk
 -include libraries/WiFi/src/subdir.mk
+-include libraries/TinyLoraESP/subdir.mk
 -include libraries/SPI/src/subdir.mk
+-include libraries/ESP32EEPROM/src/subdir.mk
 -include core/core/libb64/subdir.mk
 -include core/core/subdir.mk
 -include objects.mk

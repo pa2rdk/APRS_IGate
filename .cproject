@@ -29,6 +29,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/esp8266-oled-ssd1306-master/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/Wire}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/Wire/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/TinyLoraESP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/ESP32EEPROM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/ESP32EEPROM/src}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.cpp.sketch.input.1910148985" name="CPP source files" superClass="io.sloeber.compiler.cpp.sketch.input"/>
 							</tool>
@@ -44,6 +47,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/esp8266-oled-ssd1306-master/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/Wire}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/Wire/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/TinyLoraESP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/ESP32EEPROM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/ESP32EEPROM/src}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.c.sketch.input.43140139" name="C Source Files" superClass="io.sloeber.compiler.c.sketch.input"/>
 							</tool>
@@ -59,6 +65,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/esp8266-oled-ssd1306-master/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/Wire}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/Wire/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/TinyLoraESP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/ESP32EEPROM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/APRS_IGate/libraries/ESP32EEPROM/src}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.S.sketch.input.1520532121" name="Assembly source files" superClass="io.sloeber.compiler.S.sketch.input"/>
 							</tool>
