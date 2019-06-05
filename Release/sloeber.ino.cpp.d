@@ -119,7 +119,7 @@ sloeber.ino.cpp.o: ../sloeber.ino.cpp \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/IPAddress.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/HardwareSerial.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Esp.h \
- /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h \
+ /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32/pins_arduino.h \
  /Users/robertdekok/Library/Mobile\ Documents/com~apple~CloudDocs/ARDUINO/libraries/ESP32EEPROM/src/EEPROM.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/spi_flash/esp_partition.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/spi_flash/esp_spi_flash.h \
@@ -422,7 +422,7 @@ sloeber.ino.cpp.o: ../sloeber.ino.cpp \
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Esp.h:
 
-/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h:
+/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32/pins_arduino.h:
 
 /Users/robertdekok/Library/Mobile\ Documents/com~apple~CloudDocs/ARDUINO/libraries/ESP32EEPROM/src/EEPROM.h:
 

@@ -39,7 +39,7 @@
 		<link>
 			<name>core/variant</name>
 			<type>2</type>
-			<location>/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32</location>
+			<location>/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32</location>
 		</link>
 		<link>
 			<name>libraries/ESP32EEPROM</name>

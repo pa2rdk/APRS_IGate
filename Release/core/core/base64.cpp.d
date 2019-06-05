@@ -121,7 +121,7 @@ core/core/base64.cpp.o: \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/HardwareSerial.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Esp.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Arduino.h \
- /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h \
+ /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32/pins_arduino.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/libb64/cdecode.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/libb64/cencode.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/base64.h
@@ -368,7 +368,7 @@ core/core/base64.cpp.o: \
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Arduino.h:
 
-/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h:
+/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32/pins_arduino.h:
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/libb64/cdecode.h:
 

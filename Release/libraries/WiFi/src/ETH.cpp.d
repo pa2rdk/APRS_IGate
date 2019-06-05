@@ -163,7 +163,7 @@ libraries/WiFi/src/ETH.cpp.o: \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Stream.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/HardwareSerial.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Esp.h \
- /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h \
+ /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32/pins_arduino.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Client.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/libraries/WiFi/src/WiFiServer.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Server.h \
@@ -503,7 +503,7 @@ libraries/WiFi/src/ETH.cpp.o: \
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Esp.h:
 
-/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h:
+/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32/pins_arduino.h:
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Client.h:
 

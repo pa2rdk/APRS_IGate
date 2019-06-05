@@ -17,7 +17,7 @@ libraries/SPI/src/SPI.cpp.o: \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/newlib/sys/cdefs.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/newlib/machine/stdlib.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/newlib/alloca.h \
- /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h \
+ /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32/pins_arduino.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/newlib/stdint.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/newlib/sys/_intsup.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/esp32-hal-spi.h
@@ -56,7 +56,7 @@ libraries/SPI/src/SPI.cpp.o: \
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/newlib/alloca.h:
 
-/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h:
+/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32/pins_arduino.h:
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/tools/sdk/include/newlib/stdint.h:
 

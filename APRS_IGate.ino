@@ -22,6 +22,8 @@
 #define wdtTimeout 30   //time in seconds to trigger the watchdog
 #define VERSION "Arduino_RAZ_IGATE_TCP"
 #define INFO "Arduino RAZ IGATE"
+#define hasLCD
+//#define hasLoRa
 
 char recvBuf[BUFFERSIZE+1];
 char buf[BUFFERSIZE+1];
@@ -63,7 +65,7 @@ StoreStruct storage = {
 		'@',
 		"MARODEKExtender",
 		"0919932003",
-		"PA2RDK-11",
+		"PA2RDK-12",
 		64, //12.5 KHz steps, 64 = 144.800
 		5,
 		300,
@@ -77,13 +79,16 @@ StoreStruct storage = {
 };
 
 //LoRa Settings
-bool hasLoRa = 1;
+#ifdef hasLoRa
 uint8_t NwkSkey[16] = { 0xFB, 0xC2, 0x97, 0x1F, 0xE4, 0x6E, 0x4F, 0x9D, 0x5A, 0x96, 0xC8, 0xFB, 0xFF, 0x4F, 0x3E, 0x0C };
 uint8_t AppSkey[16] = { 0x00, 0xE6, 0x92, 0x7B, 0xCB, 0x21, 0xE3, 0x60, 0xA8, 0xA4, 0x47, 0x2F, 0xD7, 0xE9, 0x63, 0x77 };
 uint8_t DevAddr[4] = { 0x26, 0x01, 0x1A, 0xC4 };
-
 TinyLoRa lora = TinyLoRa(26, 18, 14);
+#endif
+
+#ifdef hasLCD
 SSD1306  lcd(OLED_ADR, OLED_SDA, OLED_SCL);// i2c ADDR & SDA, SCL on wemos
+#endif
 
 void setup() {
 	pinMode(OLED_RST,OUTPUT);
@@ -93,8 +98,9 @@ void setup() {
 	delay(50);
 	digitalWrite(OLED_RST, HIGH); // must be high to turn on OLED
 	delay(50);
-	Wire.begin(4,15);
+	Wire.begin(4, 15);
 
+	#ifdef hasLCD
 	lcd.init();
 	lcd.flipScreenVertically();
 	lcd.setFont(ArialMT_Plain_10);
@@ -103,6 +109,7 @@ void setup() {
 	lcd.drawString(0, 8, "STARTING");
 	lcd.display();
 	lcd.setFont(ArialMT_Plain_10);
+	#endif
 	delay(1000);
 
 	Serial.begin(9600);
@@ -120,17 +127,23 @@ void setup() {
 	}
 	loadConfig();
 	printConfig();
+
+	#ifdef hasLCD
 	lcd.drawString(0, 16, "Wait for setup");
 	lcd.display();
+	#endif
 
 	Serial.println(F("Type GS to enter setup:"));
 	delay(5000);
 	if (Serial.available()) {
 		if (Serial.find("GS")) {
 			Serial.println(F("Setup entered..."));
+
+			#ifdef hasLCD
 			lcd.clear();
 			lcd.drawString(0, 0,"Setup entered");
 			lcd.display();
+			#endif
 			setSettings(true);
 			delay(2000);
 		}
@@ -143,23 +156,29 @@ void setup() {
 	Modem.println(F("AT+SETFILTER=1,1,1"));
 	Serial.print(F("DRA Initialized on freq:"));
 	Serial.println(float(144000+(storage.modemChannel*12.5))/1000);
+
+	#ifdef hasLCD
 	lcd.drawString(0, 24, "Modem set at "+String(float(144000+(storage.modemChannel*12.5))/1000)+ "MHz" );
 	lcd.display();
+	#endif
+
 	// define single-channel sending
-	if (hasLoRa == 1){
-		lora.setChannel(CH0);
-		// set datarate
-		lora.setDatarate(SF9BW125);
-		if(!lora.begin())
-		{
-			Serial.println("Failed");
-			Serial.println("Check your radio, LoRa disabled");
-			hasLoRa = 0;
-		}
-		Serial.println("LoRa enabled");
-		lcd.drawString(0, 32, "LoRa Enabled" );
-		lcd.display();
+	#ifdef hasLoRa
+	lora.setChannel(CH0);
+	// set datarate
+	lora.setDatarate(SF9BW125);
+	if(!lora.begin())
+	{
+		Serial.println("Failed");
+		Serial.println("Check your radio, LoRa disabled");
 	}
+	Serial.println("LoRa enabled");
+
+	#ifdef hasLCD
+	lcd.drawString(0, 32, "LoRa Enabled" );
+	lcd.display();
+	#endif
+	#endif
 
 	timer = timerBegin(0, 80, true);                  //timer 0, div 80
 	timerAttachInterrupt(timer, &resetModule, true);  //attach callback
@@ -173,14 +192,20 @@ void loop() {
 	timerWrite(timer, 0);
 	if (millis()-oledSleepTime>storage.oledTimeout*1000){
 		oledSleepTime=millis();
+
+		#ifdef hasLCD
 		lcd.clear();
 		lcd.display();
+		#endif
 	}
 	boolean connected = check_connection();
 	if (millis()-lastClientUpdate>storage.updateInterval*1000){
+
+		#ifdef hasLCD
 		lcd.clear();
 		lcd.drawString(0, 0, "Update IGate info");
 		lcd.display();
+		#endif
 		updateGatewayonAPRS();
 	}
 	byte doSwap = 1;
@@ -198,27 +223,33 @@ void loop() {
 
 		if (ch == '\n') {
 			recvBuf[buflen] = 0;
+			Serial.println(recvBuf);
 			if (convertPacket(buflen,bufpos)){
 				if (connected){
 					digitalWrite(TX_LED, HIGH);
 					send_packet();
-					if (hasLoRa==1) send_LoRaPacket();
+					#ifdef hasLoRa
+					send_LoRaPacket();
+					#endif
 					delay(100);
 					digitalWrite(TX_LED, LOW);
 					oledSleepTime=millis();
 				}
 			} else {
 				Serial.println("Illegal packet");
+
+				#ifdef hasLCD
 				lcd.clear();
 				lcd.drawString(0, 0, "Illegal packet");
 				lcd.drawStringMaxWidth(0,16, 200, buf);
 				lcd.display();
+				#endif
 				oledSleepTime=millis();
 			}
 			buflen = 0;
 		} else if (ch == 0xc0) {
 			// Skip chars
-		} else if ((ch > 31 || ch == 0x1c || ch == 0x1d || ch == 0x27 || ch == 0x1e) && buflen < BUFFERSIZE) {
+		} else if ((ch > 31 || ch == 0x1c || ch == 0x1d|| ch == 0x1e || ch == 0x1f || ch == 0x27) && buflen < BUFFERSIZE) {
 			// Mic-E uses some non-printing characters
 			if (doSwap==1) ch=ch>>1;
 			recvBuf[buflen++] = ch;
@@ -246,7 +277,7 @@ bool convertPacket(int bufLen,int bufPos) {
 			if (recvBuf[i]!=' ') buf[newPos++]=recvBuf[i];
 		}
 		buf[newPos++]='-';
-		buf[newPos++]=recvBuf[13];
+		buf[newPos++]=recvBuf[13]&0x3F;
 		buf[newPos++]='>';
 
 		for (int i=0;i<6;i++){
@@ -291,16 +322,20 @@ void receive_data() {
 void send_packet() {
 	display("Sending packet");
 	display(buf);
+
+	#ifdef hasLCD
 	lcd.clear();
 	lcd.drawString(0, 0, "Send packet");
 	lcd.drawStringMaxWidth(0,16, 200, buf);
 	lcd.display();
+	#endif
 	client.println(buf);
 	//client.println("PA2RDK-9" ">" DESTINATION ":!" LATITUDE "I" LONGITUDE "&" PHG "/" "DATATEST");
 	client.println();
 }
 
 void send_LoRaPacket() {
+	#ifdef hasLoRa
 	int x = 0;
 	byte buffer[50];
 	while (buf[x]!=0 && x<50){
@@ -314,6 +349,7 @@ void send_LoRaPacket() {
 		Serial.print("Frame Counter: ");Serial.println(lora.frameCounter);
 		lora.frameCounter++;
 	}
+	#endif
 }
 void display_packet() {
 	Serial.println(buf);
@@ -327,9 +363,12 @@ void display(char *msg) {
 void InitConnection() {
 	display("++++++++++++++");
 	display("Initialize connection");
+
+	#ifdef hasLCD
 	lcd.clear();
 	lcd.drawString(0, 0, "Connecting to WiFi" );
 	lcd.display();
+	#endif
 
 	WlanReset();
 	int agains=1;
@@ -343,9 +382,12 @@ void InitConnection() {
 	}
 	WlanStatus();
 	display("Connected to the WiFi network");
+
+	#ifdef hasLCD
 	lcd.drawString(0, 8, "Connected to:");
 	lcd.drawString(70,8, storage.SSID);
 	lcd.display();
+	#endif
 
 	if (WlanStatus()==WL_CONNECTED){
 		display("++++++++++++++");
@@ -367,13 +409,19 @@ void InitConnection() {
 				updateGatewayonAPRS();
 
 				display("Connected");
+
+				#ifdef hasLCD
 				lcd.drawString(0, 16, "Con. APRS-IS:");
 				lcd.drawString(70,16, storage.callSign);
 				lcd.display();
+				#endif
 			} else {
 				display("Failed");
+
+				#ifdef hasLCD
 				lcd.drawString(0, 16, "Conn. to APRS-IS Failed" );
 				lcd.display();
+				#endif
 				// if still not connected, delay to prevent constant attempts.
 				delay(1000);
 			}

@@ -120,7 +120,7 @@ core/core/StreamString.cpp.o: \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/IPAddress.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/HardwareSerial.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Esp.h \
- /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h \
+ /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32/pins_arduino.h \
  /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/StreamString.h
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Arduino.h:
@@ -363,6 +363,6 @@ core/core/StreamString.cpp.o: \
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/Esp.h:
 
-/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/heltec_wifi_lora_32/pins_arduino.h:
+/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32/pins_arduino.h:
 
 /Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32/StreamString.h:
