@@ -63,15 +63,15 @@ struct StoreStruct {
 
 StoreStruct storage = {
 		'@',
-		"MARODEKExtender",
-		"0919932003",
-		"PA2RDK-12",
+		"WiFiSSID",
+		"WiFiPass",
+		"PA9AAA-10",
 		64, //12.5 KHz steps, 64 = 144.800
 		5,
 		300,
 		"21946",
-		"5204.44N",
-		"00430.24E",
+		"5214.12N",
+		"00545.16E",
 		"PHG01000",
 		"rotate.aprs.net",    //sjc.aprs2.net
 		14580,
