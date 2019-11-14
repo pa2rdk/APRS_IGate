@@ -34,42 +34,42 @@
 		<link>
 			<name>core/core</name>
 			<type>2</type>
-			<location>/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/cores/esp32</location>
+			<location>/Users/robertdekok/git/arduino-esp32/cores/esp32</location>
 		</link>
 		<link>
 			<name>core/variant</name>
 			<type>2</type>
-			<location>/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/variants/esp32</location>
+			<location>/Users/robertdekok/git/arduino-esp32/variants/heltec_wifi_lora_32</location>
 		</link>
 		<link>
-			<name>libraries/ESP32EEPROM</name>
+			<name>libraries/EEPROM</name>
 			<type>2</type>
-			<location>/Users/robertdekok/Library/Mobile Documents/com~apple~CloudDocs/ARDUINO/libraries/ESP32EEPROM</location>
+			<location>/Users/robertdekok/git/arduino-esp32/libraries/EEPROM</location>
 		</link>
 		<link>
 			<name>libraries/SPI</name>
 			<type>2</type>
-			<location>/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/libraries/SPI</location>
+			<location>/Users/robertdekok/git/arduino-esp32/libraries/SPI</location>
 		</link>
 		<link>
 			<name>libraries/TinyLoraESP</name>
 			<type>2</type>
-			<location>/Users/robertdekok/Library/Mobile Documents/com~apple~CloudDocs/ARDUINO/libraries/TinyLoraESP</location>
+			<locationURI>WORKSPACE_LOC/libraries/TinyLoraESP</locationURI>
 		</link>
 		<link>
 			<name>libraries/WiFi</name>
 			<type>2</type>
-			<location>/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/libraries/WiFi</location>
+			<location>/Users/robertdekok/git/arduino-esp32/libraries/WiFi</location>
 		</link>
 		<link>
 			<name>libraries/Wire</name>
 			<type>2</type>
-			<location>/Users/robertdekok/Documents/Arduino/hardware/espressif/esp32/libraries/Wire</location>
+			<location>/Users/robertdekok/git/arduino-esp32/libraries/Wire</location>
 		</link>
 		<link>
 			<name>libraries/esp8266-oled-ssd1306-master</name>
 			<type>2</type>
-			<location>/Users/robertdekok/Library/Mobile Documents/com~apple~CloudDocs/ARDUINO/libraries/esp8266-oled-ssd1306-master</location>
+			<locationURI>WORKSPACE_LOC/libraries/esp8266-oled-ssd1306-master</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

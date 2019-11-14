@@ -1,0 +1,122 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/cores/esp32"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/variants/esp32"
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
+    "Include": "EEPROM.h",
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/EEPROM/src"
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
+    "Include": "SPI.h",
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/SPI/src"
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
+    "Include": "WiFi.h",
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src"
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
+    "Include": "Wire.h",
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/Wire/src"
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
+    "Include": "SSD1306.h",
+    "Includepath": "/Users/robertdekok/Dropbox/Arduino-workspace/libraries/esp8266-oled-ssd1306-master/src"
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/sloeber.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/EEPROM/src/EEPROM.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/SPI/src/SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src/ETH.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src/WiFi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src/WiFiAP.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src/WiFiClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src/WiFiGeneric.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src/WiFiMulti.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src/WiFiSTA.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src/WiFiScan.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src/WiFiServer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/WiFi/src/WiFiUdp.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.3/libraries/Wire/src/Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/libraries/esp8266-oled-ssd1306-master/src/OLEDDisplay.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/libraries/esp8266-oled-ssd1306-master/src/OLEDDisplayUi.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]

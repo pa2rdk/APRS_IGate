@@ -1,10 +1,10 @@
-#include <Arduino.h>
-#include <EEPROM.h>
+//#include <Arduino.h>
+#include "EEPROM.h"
 #include <SPI.h>
-#include <WiFi.h>
-#include <Wire.h>
+#include "WiFi.h"
+#include "Wire.h"
 #include "SSD1306.h"
-#include <TinyLoRa.h>
+//#include <TinyLoRaESP.h>
 
 // Change callsign, network, and all other configuration in the config.h file
 //#include "config.h"
@@ -41,7 +41,7 @@ hw_timer_t *timer = NULL;
 
 void IRAM_ATTR resetModule() {
 	ets_printf("WDT Reboot\n");
-	esp_restart_noos();
+	esp_restart();
 }
 
 struct StoreStruct {
@@ -63,15 +63,15 @@ struct StoreStruct {
 
 StoreStruct storage = {
 		'@',
-		"WiFiSSID",
-		"WiFiPass",
-		"PA9AAA-10",
+		"YourSSID",
+		"WiFiPassword",
+		"PI4RAZ-11",
 		64, //12.5 KHz steps, 64 = 144.800
 		5,
 		300,
 		"99999",
-		"5214.12N",
-		"00545.16E",
+		"5204.44N",
+		"00430.24E",
 		"PHG01000",
 		"rotate.aprs.net",    //sjc.aprs2.net
 		14580,
@@ -80,9 +80,9 @@ StoreStruct storage = {
 
 //LoRa Settings
 #ifdef hasLoRa
-uint8_t NwkSkey[16] = { };
-uint8_t AppSkey[16] = { };
-uint8_t DevAddr[4] = { };
+uint8_t NwkSkey[16] = { 0xFB, 0xC2, 0x97, 0x1F, 0xE4, 0x6E, 0x4F, 0x9D, 0x5A, 0x96, 0xC8, 0xFB, 0xFF, 0x4F, 0x3E, 0x0C };
+uint8_t AppSkey[16] = { 0x00, 0xE6, 0x92, 0x7B, 0xCB, 0x21, 0xE3, 0x60, 0xA8, 0xA4, 0x47, 0x2F, 0xD7, 0xE9, 0x63, 0x77 };
+uint8_t DevAddr[4] = { 0x26, 0x01, 0x1A, 0xC4 };
 TinyLoRa lora = TinyLoRa(26, 18, 14);
 #endif
 
@@ -612,7 +612,7 @@ void setSettings(bool doSet) {
 	if (doSet == 1) {
 		getStringValue(5);
 		if (receivedString[0] != 0) {
-			storage.SSID[0] = 0;
+			storage.passCode[0] = 0;
 			strcat(storage.passCode, receivedString);
 		}
 	}
@@ -822,31 +822,31 @@ byte getNumericValue() {
 }
 
 void saveConfig() {
-	for (unsigned int t = 0; t < sizeof(storage); t++)
-		EEPROM.write(offsetEEPROM + t, *((char*)&storage + t));
-	EEPROM.commit();
+  for (unsigned int t = 0; t < sizeof(storage); t++)
+    EEPROM.write(offsetEEPROM + t, *((char*)&storage + t));
+  EEPROM.commit();
 }
 
 void loadConfig() {
-	if (EEPROM.read(offsetEEPROM + 0) == storage.chkDigit)
-		for (unsigned int t = 0; t < sizeof(storage); t++)
-			*((char*)&storage + t) = EEPROM.read(offsetEEPROM + t);
+  if (EEPROM.read(offsetEEPROM + 0) == storage.chkDigit)
+    for (unsigned int t = 0; t < sizeof(storage); t++)
+      *((char*)&storage + t) = EEPROM.read(offsetEEPROM + t);
 }
 
 void printConfig() {
-	if (EEPROM.read(offsetEEPROM + 0) == storage.chkDigit)
-		for (unsigned int t = 0; t < sizeof(storage); t++)
-			Serial.write(EEPROM.read(offsetEEPROM + t));
+  if (EEPROM.read(offsetEEPROM + 0) == storage.chkDigit)
+    for (unsigned int t = 0; t < sizeof(storage); t++)
+      Serial.write(EEPROM.read(offsetEEPROM + t));
 
-	Serial.println();
-	setSettings(0);
+  Serial.println();
+  setSettings(0);
 }
 
 void SerialFlush() {
-	for (int i = 0; i < 10; i++)
-	{
-		while (Serial.available() > 0) {
-			Serial.read();
-		}
-	}
+  for (int i = 0; i < 10; i++)
+  {
+    while (Serial.available() > 0) {
+      Serial.read();
+    }
+  }
 }
