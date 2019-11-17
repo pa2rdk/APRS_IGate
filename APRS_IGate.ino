@@ -62,7 +62,7 @@ struct StoreStruct {
 };
 
 StoreStruct storage = {
-		'@',
+		'#',
 		"YourSSID",
 		"WiFiPassword",
 		"PI4RAZ-11",
