@@ -119,7 +119,7 @@ void setup() {
 
 	if (!EEPROM.begin(EEPROM_SIZE))
 	{
-		Serial.println("failed to initialise EEPROM"); delay(1000000);
+		Serial.println("failed to initialise EEPROM"); while(1);
 	}
 	if (EEPROM.read(offsetEEPROM) != storage.chkDigit){
 		Serial.println(F("Writing defaults"));

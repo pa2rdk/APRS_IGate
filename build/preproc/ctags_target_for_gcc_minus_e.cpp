@@ -1,10 +1,10 @@
-# 1 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 1 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 //#include <Arduino.h>
-# 3 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
-# 4 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
-# 5 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
-# 6 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
-# 7 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
+# 3 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
+# 4 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
+# 5 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
+# 6 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
+# 7 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
 //#include <TinyLoRaESP.h>
 
 // Change callsign, network, and all other configuration in the config.h file
@@ -39,9 +39,9 @@ WiFiClient client;
 HardwareSerial Modem(1);
 
 hw_timer_t *timer = 
-# 40 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 3 4
+# 40 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 3 4
                    __null
-# 40 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 40 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
                        ;
 
 void __attribute__((section(".iram1"))) resetModule() {
@@ -67,7 +67,7 @@ struct StoreStruct {
 };
 
 StoreStruct storage = {
-  '@',
+  '#',
   "YourSSID",
   "WiFiPassword",
   "PI4RAZ-11",
@@ -84,7 +84,7 @@ StoreStruct storage = {
 };
 
 //LoRa Settings
-# 90 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 90 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 SSD1306 lcd(0x3C /* Default 0x3C for 0.9", for 1.3" it is 0x78*/, 4 /* GPIO4*/, 15 /* GPIO15*/);// i2c ADDR & SDA, SCL on wemos
 
 
@@ -161,7 +161,7 @@ void setup() {
 
 
  // define single-channel sending
-# 183 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 183 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
  timer = timerBegin(0, 80, true); //timer 0, div 80
  timerAttachInterrupt(timer, &resetModule, true); //attach callback
  timerAlarmWrite(timer, 30 /*time in seconds to trigger the watchdog*/ * 1000 * 1000, false); //set time in us
@@ -317,7 +317,7 @@ void send_packet() {
 }
 
 void send_LoRaPacket() {
-# 353 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 353 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 }
 void display_packet() {
  Serial.println(buf);

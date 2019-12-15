@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#line 1 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 1 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 //#include <Arduino.h>
 #include "EEPROM.h"
 #include <SPI.h>
@@ -41,55 +41,55 @@ HardwareSerial Modem(1);
 
 hw_timer_t *timer = NULL;
 
-#line 93 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 93 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void setup();
-#line 191 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 191 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void loop();
-#line 271 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 271 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 bool convertPacket(int bufLen,int bufPos);
-#line 300 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 300 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 boolean check_connection();
-#line 308 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 308 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void receive_data();
-#line 322 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 322 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void send_packet();
-#line 337 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 337 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void send_LoRaPacket();
-#line 354 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 354 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void display_packet();
-#line 358 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 358 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void display(char *msg);
-#line 363 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 363 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void InitConnection();
-#line 432 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 432 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void updateGatewayonAPRS();
-#line 445 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 445 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void WlanReset();
-#line 453 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 453 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 int WlanStatus();
-#line 513 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 513 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void setDra(byte rxFreq, byte txFreq, byte rxTone, byte txTone);
-#line 542 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 542 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void setSettings(bool doSet);
-#line 696 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 696 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void getStringValue(int length);
-#line 716 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 716 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 byte getCharValue();
-#line 737 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 737 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 uint32_t get32NumericValue();
-#line 766 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 766 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 uint16_t get16NumericValue();
-#line 795 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 795 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 byte getNumericValue();
-#line 824 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 824 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void saveConfig();
-#line 830 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 830 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void loadConfig();
-#line 836 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 836 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void printConfig();
-#line 845 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 845 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void SerialFlush();
-#line 42 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 42 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void IRAM_ATTR resetModule() {
 	ets_printf("WDT Reboot\n");
 	esp_restart();
@@ -113,7 +113,7 @@ struct StoreStruct {
 };
 
 StoreStruct storage = {
-		'@',
+		'#',
 		"YourSSID",
 		"WiFiPassword",
 		"PI4RAZ-11",
