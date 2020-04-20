@@ -1,13 +1,9 @@
-//#include <Arduino.h>
 #include "EEPROM.h"
 #include <SPI.h>
 #include "WiFi.h"
 #include "Wire.h"
 #include "SSD1306.h"
 //#include <TinyLoRaESP.h>
-
-// Change callsign, network, and all other configuration in the config.h file
-//#include "config.h"
 
 #define offsetEEPROM 0x0    //offset config
 #define EEPROM_SIZE 160
@@ -62,7 +58,7 @@ struct StoreStruct {
 };
 
 StoreStruct storage = {
-		'#',
+		'$',
 		"YourSSID",
 		"WiFiPassword",
 		"PI4RAZ-11",
@@ -198,34 +194,34 @@ void loop() {
 		lcd.display();
 		#endif
 	}
-	boolean connected = check_connection();
-	if (millis()-lastClientUpdate>storage.updateInterval*1000){
 
-		#ifdef hasLCD
-		lcd.clear();
-		lcd.drawString(0, 0, "Update IGate info");
-		lcd.display();
-		#endif
-		updateGatewayonAPRS();
-	}
-	byte doSwap = 1;
-	int bufpos = 0;
-	while (Modem.available()) {
-		char ch = Modem.read();
+	if (check_connection()){
+		if (millis()-lastClientUpdate>storage.updateInterval*1000){
 
-		if (ch == 0xc0 && buflen>4){
-			ch='\n';
+			#ifdef hasLCD
+			lcd.clear();
+			lcd.drawString(0, 0, "Update IGate info");
+			lcd.display();
+			#endif
+			updateGatewayonAPRS();
 		}
-		if (ch==0x03){
-			doSwap = 0;
-			bufpos=buflen;
-		}
+		byte doSwap = 1;
+		int bufpos = 0;
+		while (Modem.available()) {
+			char ch = Modem.read();
 
-		if (ch == '\n') {
-			recvBuf[buflen] = 0;
-			Serial.println(recvBuf);
-			if (convertPacket(buflen,bufpos)){
-				if (connected){
+			if (ch == 0xc0 && buflen>4){
+				ch='\n';
+			}
+			if (ch==0x03){
+				doSwap = 0;
+				bufpos=buflen;
+			}
+
+			if (ch == '\n') {
+				recvBuf[buflen] = 0;
+				Serial.println(recvBuf);
+				if (convertPacket(buflen,bufpos)){
 					digitalWrite(TX_LED, HIGH);
 					send_packet();
 					#ifdef hasLoRa
@@ -234,37 +230,36 @@ void loop() {
 					delay(100);
 					digitalWrite(TX_LED, LOW);
 					oledSleepTime=millis();
+				} else {
+					Serial.println("Illegal packet");
+
+					#ifdef hasLCD
+					lcd.clear();
+					lcd.drawString(0, 0, "Illegal packet");
+					lcd.drawStringMaxWidth(0,16, 200, buf);
+					lcd.display();
+					#endif
+					oledSleepTime=millis();
 				}
-			} else {
-				Serial.println("Illegal packet");
-
-				#ifdef hasLCD
-				lcd.clear();
-				lcd.drawString(0, 0, "Illegal packet");
-				lcd.drawStringMaxWidth(0,16, 200, buf);
-				lcd.display();
-				#endif
-				oledSleepTime=millis();
+				buflen = 0;
+			} else if (ch == 0xc0) {
+				// Skip chars
+			} else if ((ch > 31 || ch == 0x1c || ch == 0x1d|| ch == 0x1e || ch == 0x1f || ch == 0x27) && buflen < BUFFERSIZE) {
+				// Mic-E uses some non-printing characters
+				if (doSwap==1) ch=ch>>1;
+				recvBuf[buflen++] = ch;
 			}
-			buflen = 0;
-		} else if (ch == 0xc0) {
-			// Skip chars
-		} else if ((ch > 31 || ch == 0x1c || ch == 0x1d|| ch == 0x1e || ch == 0x1f || ch == 0x27) && buflen < BUFFERSIZE) {
-			// Mic-E uses some non-printing characters
-			if (doSwap==1) ch=ch>>1;
-			recvBuf[buflen++] = ch;
 		}
-	}
 
-	//	If connected to APRS-IS, read any response from APRS-IS and display it.
-	//	Buffer 80 characters at a time in case printing a character at a time is slow.
-	if (connected) {
+		//	If connected to APRS-IS, read any response from APRS-IS and display it.
+		//	Buffer 80 characters at a time in case printing a character at a time is slow.
 		receive_data();
-	}
-	int b = 0;
-	while (Serial.available() > 0) {
-		b = Serial.read();
-		Modem.write(b);
+
+		int b = 0;
+		while (Serial.available() > 0) {
+			b = Serial.read();
+			Modem.write(b);
+		}
 	}
 }
 
@@ -302,7 +297,6 @@ boolean check_connection() {
 		InitConnection();
 	}
 	return client.connected();
-	oledSleepTime=millis();
 }
 
 void receive_data() {
@@ -370,26 +364,25 @@ void InitConnection() {
 	lcd.display();
 	#endif
 
-	WlanReset();
-	int agains=1;
-	while (((WiFi.status()) != WL_CONNECTED) && (agains < 10)){
-		display("++++++++++++++");
+	if (WiFi.status() != WL_CONNECTED){
 		display("Connecting to WiFi");
 		WlanReset();
 		WiFi.begin(storage.SSID,storage.pass);
-		delay(5000);
-		agains++;
+		int agains=1;
+		while ((WiFi.status() != WL_CONNECTED) && (agains < 20)){
+			Serial.print(".");
+			delay(1000);
+			agains++;
+		}
+		//WlanStatus();
 	}
-	WlanStatus();
-	display("Connected to the WiFi network");
-
-	#ifdef hasLCD
-	lcd.drawString(0, 8, "Connected to:");
-	lcd.drawString(70,8, storage.SSID);
-	lcd.display();
-	#endif
 
 	if (WlanStatus()==WL_CONNECTED){
+		#ifdef hasLCD
+		lcd.drawString(0, 8, "Connected to:");
+		lcd.drawString(70,8, storage.SSID);
+		lcd.display();
+		#endif
 		display("++++++++++++++");
 		display("WiFi connected");
 		display("IP address: ");

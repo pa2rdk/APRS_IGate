@@ -1,14 +1,10 @@
-# 1 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
-//#include <Arduino.h>
-# 3 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
-# 4 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
-# 5 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
-# 6 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
-# 7 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
+# 1 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 2 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
+# 3 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
+# 4 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
+# 5 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
+# 6 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 2
 //#include <TinyLoRaESP.h>
-
-// Change callsign, network, and all other configuration in the config.h file
-//#include "config.h"
 
 #define offsetEEPROM 0x0 /*offset config*/
 #define EEPROM_SIZE 160
@@ -39,9 +35,9 @@ WiFiClient client;
 HardwareSerial Modem(1);
 
 hw_timer_t *timer = 
-# 40 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 3 4
+# 36 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino" 3 4
                    __null
-# 40 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 36 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
                        ;
 
 void __attribute__((section(".iram1"))) resetModule() {
@@ -67,7 +63,7 @@ struct StoreStruct {
 };
 
 StoreStruct storage = {
-  '#',
+  '$',
   "YourSSID",
   "WiFiPassword",
   "PI4RAZ-11",
@@ -84,7 +80,7 @@ StoreStruct storage = {
 };
 
 //LoRa Settings
-# 90 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 86 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 SSD1306 lcd(0x3C /* Default 0x3C for 0.9", for 1.3" it is 0x78*/, 4 /* GPIO4*/, 15 /* GPIO15*/);// i2c ADDR & SDA, SCL on wemos
 
 
@@ -117,7 +113,7 @@ void setup() {
 
  if (!EEPROM.begin(160))
  {
-  Serial.println("failed to initialise EEPROM"); delay(1000000);
+  Serial.println("failed to initialise EEPROM"); while(1);
  }
  if (EEPROM.read(0x0 /*offset config*/) != storage.chkDigit){
   Serial.println(((reinterpret_cast<const __FlashStringHelper *>(("Writing defaults")))));
@@ -161,7 +157,7 @@ void setup() {
 
 
  // define single-channel sending
-# 183 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 179 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
  timer = timerBegin(0, 80, true); //timer 0, div 80
  timerAttachInterrupt(timer, &resetModule, true); //attach callback
  timerAlarmWrite(timer, 30 /*time in seconds to trigger the watchdog*/ * 1000 * 1000, false); //set time in us
@@ -180,34 +176,34 @@ void loop() {
   lcd.display();
 
  }
- boolean connected = check_connection();
- if (millis()-lastClientUpdate>storage.updateInterval*1000){
+
+ if (check_connection()){
+  if (millis()-lastClientUpdate>storage.updateInterval*1000){
 
 
-  lcd.clear();
-  lcd.drawString(0, 0, "Update IGate info");
-  lcd.display();
+   lcd.clear();
+   lcd.drawString(0, 0, "Update IGate info");
+   lcd.display();
 
-  updateGatewayonAPRS();
- }
- byte doSwap = 1;
- int bufpos = 0;
- while (Modem.available()) {
-  char ch = Modem.read();
-
-  if (ch == 0xc0 && buflen>4){
-   ch='\n';
+   updateGatewayonAPRS();
   }
-  if (ch==0x03){
-   doSwap = 0;
-   bufpos=buflen;
-  }
+  byte doSwap = 1;
+  int bufpos = 0;
+  while (Modem.available()) {
+   char ch = Modem.read();
 
-  if (ch == '\n') {
-   recvBuf[buflen] = 0;
-   Serial.println(recvBuf);
-   if (convertPacket(buflen,bufpos)){
-    if (connected){
+   if (ch == 0xc0 && buflen>4){
+    ch='\n';
+   }
+   if (ch==0x03){
+    doSwap = 0;
+    bufpos=buflen;
+   }
+
+   if (ch == '\n') {
+    recvBuf[buflen] = 0;
+    Serial.println(recvBuf);
+    if (convertPacket(buflen,bufpos)){
      digitalWrite(27, 0x1);
      send_packet();
 
@@ -216,37 +212,36 @@ void loop() {
      delay(100);
      digitalWrite(27, 0x0);
      oledSleepTime=millis();
+    } else {
+     Serial.println("Illegal packet");
+
+
+     lcd.clear();
+     lcd.drawString(0, 0, "Illegal packet");
+     lcd.drawStringMaxWidth(0,16, 200, buf);
+     lcd.display();
+
+     oledSleepTime=millis();
     }
-   } else {
-    Serial.println("Illegal packet");
-
-
-    lcd.clear();
-    lcd.drawString(0, 0, "Illegal packet");
-    lcd.drawStringMaxWidth(0,16, 200, buf);
-    lcd.display();
-
-    oledSleepTime=millis();
+    buflen = 0;
+   } else if (ch == 0xc0) {
+    // Skip chars
+   } else if ((ch > 31 || ch == 0x1c || ch == 0x1d|| ch == 0x1e || ch == 0x1f || ch == 0x27) && buflen < 260) {
+    // Mic-E uses some non-printing characters
+    if (doSwap==1) ch=ch>>1;
+    recvBuf[buflen++] = ch;
    }
-   buflen = 0;
-  } else if (ch == 0xc0) {
-   // Skip chars
-  } else if ((ch > 31 || ch == 0x1c || ch == 0x1d|| ch == 0x1e || ch == 0x1f || ch == 0x27) && buflen < 260) {
-   // Mic-E uses some non-printing characters
-   if (doSwap==1) ch=ch>>1;
-   recvBuf[buflen++] = ch;
   }
- }
 
- //	If connected to APRS-IS, read any response from APRS-IS and display it.
- //	Buffer 80 characters at a time in case printing a character at a time is slow.
- if (connected) {
+  //	If connected to APRS-IS, read any response from APRS-IS and display it.
+  //	Buffer 80 characters at a time in case printing a character at a time is slow.
   receive_data();
- }
- int b = 0;
- while (Serial.available() > 0) {
-  b = Serial.read();
-  Modem.write(b);
+
+  int b = 0;
+  while (Serial.available() > 0) {
+   b = Serial.read();
+   Modem.write(b);
+  }
  }
 }
 
@@ -284,7 +279,6 @@ boolean check_connection() {
   InitConnection();
  }
  return client.connected();
- oledSleepTime=millis();
 }
 
 void receive_data() {
@@ -317,7 +311,7 @@ void send_packet() {
 }
 
 void send_LoRaPacket() {
-# 353 "/home/robert/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 347 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 }
 void display_packet() {
  Serial.println(buf);
@@ -338,26 +332,25 @@ void InitConnection() {
  lcd.display();
 
 
- WlanReset();
- int agains=1;
- while (((WiFi.status()) != WL_CONNECTED) && (agains < 10)){
-  display("++++++++++++++");
+ if (WiFi.status() != WL_CONNECTED){
   display("Connecting to WiFi");
   WlanReset();
   WiFi.begin(storage.SSID,storage.pass);
-  delay(5000);
-  agains++;
+  int agains=1;
+  while ((WiFi.status() != WL_CONNECTED) && (agains < 20)){
+   Serial.print(".");
+   delay(1000);
+   agains++;
+  }
+  //WlanStatus();
  }
- WlanStatus();
- display("Connected to the WiFi network");
-
-
- lcd.drawString(0, 8, "Connected to:");
- lcd.drawString(70,8, storage.SSID);
- lcd.display();
-
 
  if (WlanStatus()==WL_CONNECTED){
+
+  lcd.drawString(0, 8, "Connected to:");
+  lcd.drawString(70,8, storage.SSID);
+  lcd.display();
+
   display("++++++++++++++");
   display("WiFi connected");
   display("IP address: ");
