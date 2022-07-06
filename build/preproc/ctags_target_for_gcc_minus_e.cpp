@@ -7,7 +7,7 @@
 //#include <TinyLoRaESP.h>
 
 #define offsetEEPROM 0x0 /*offset config*/
-#define EEPROM_SIZE 160
+#define EEPROM_SIZE 174
 #define BUFFERSIZE 260
 #define Modem_RX 22
 #define Modem_TX 23
@@ -48,7 +48,7 @@ void __attribute__((section(".iram1"))) resetModule() {
 struct StoreStruct {
  byte chkDigit;
  char SSID[25];
- char pass[25];
+ char pass[64];
  char callSign[10];
  int modemChannel;
  int oledTimeout;
@@ -111,7 +111,7 @@ void setup() {
  Modem.begin(9600, 0x800001c, 22, 23);
  Modem.setTimeout(2);
 
- if (!EEPROM.begin(160))
+ if (!EEPROM.begin(174))
  {
   Serial.println("failed to initialise EEPROM"); while(1);
  }
@@ -520,7 +520,7 @@ void setSettings(bool doSet) {
  Serial.print(storage.pass);
  Serial.print(((reinterpret_cast<const __FlashStringHelper *>(("):")))));
  if (doSet == 1) {
-  getStringValue(24);
+  getStringValue(63);
   if (receivedString[0] != 0) {
    storage.pass[0] = 0;
    strcat(storage.pass, receivedString);
