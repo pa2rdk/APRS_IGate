@@ -8,7 +8,7 @@
 //#include <TinyLoRaESP.h>
 
 #define offsetEEPROM 0x0    //offset config
-#define EEPROM_SIZE 174
+#define EEPROM_SIZE 184
 #define BUFFERSIZE 260
 #define Modem_RX 22
 #define Modem_TX 23
@@ -39,51 +39,51 @@ hw_timer_t *timer = NULL;
 
 #line 89 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void setup();
-#line 187 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 191 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void loop();
-#line 266 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 273 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 bool convertPacket(int bufLen,int bufPos);
-#line 295 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
-boolean check_connection();
 #line 302 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+boolean check_connection();
+#line 309 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void receive_data();
-#line 316 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 323 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void send_packet();
-#line 331 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 338 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void send_LoRaPacket();
-#line 348 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 355 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void display_packet();
-#line 352 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 359 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void display(char *msg);
-#line 357 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 364 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void InitConnection();
-#line 425 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 432 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void updateGatewayonAPRS();
-#line 438 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 445 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void WlanReset();
-#line 446 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 453 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 int WlanStatus();
-#line 506 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 513 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void setDra(byte rxFreq, byte txFreq, byte rxTone, byte txTone);
-#line 535 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 525 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void setSettings(bool doSet);
-#line 689 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 679 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void getStringValue(int length);
-#line 709 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 699 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 byte getCharValue();
-#line 730 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 720 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 uint32_t get32NumericValue();
-#line 759 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 749 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 uint16_t get16NumericValue();
-#line 788 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 778 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 byte getNumericValue();
-#line 817 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 807 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void saveConfig();
-#line 823 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 813 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void loadConfig();
-#line 829 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 819 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void printConfig();
-#line 838 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+#line 828 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void SerialFlush();
 #line 38 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 void IRAM_ATTR resetModule() {
@@ -197,7 +197,11 @@ void setup() {
 	}
 
 	delay(1000);
+	for (int i = 0;i<4;i++){
 	setDra(storage.modemChannel, storage.modemChannel, 0, 0);
+		delay(500);
+	}
+
 	Modem.println(F("AT+DMOSETVOLUME=8"));
 	Modem.println(F("AT+DMOSETMIC=8,0"));
 	Modem.println(F("AT+SETFILTER=1,1,1"));
@@ -259,6 +263,10 @@ void loop() {
 		byte doSwap = 1;
 		int bufpos = 0;
 		while (Modem.available()) {
+			// Serial.print(buflen);
+			// Serial.print(" - ");
+			// Serial.println(doSwap);
+			delay(5);
 			char ch = Modem.read();
 
 			if (ch == 0xc0 && buflen>4){
@@ -271,7 +279,6 @@ void loop() {
 
 			if (ch == '\n') {
 				recvBuf[buflen] = 0;
-				Serial.println(recvBuf);
 				if (convertPacket(buflen,bufpos)){
 					digitalWrite(TX_LED, HIGH);
 					send_packet();
@@ -565,23 +572,6 @@ void setDra(byte rxFreq, byte txFreq, byte rxTone, byte txTone) {
 	Serial.println(buff);
 	Modem.println(buff);
 }
-
-//struct StoreStruct {
-//	byte chkDigit;
-//	char SSID[25];
-//	char pass[25];
-//	char callSign[10];
-//	int modemChannel;
-//	int oledTimeout;
-//	int updateInterval;
-//	char passCode[6];
-//	char latitude[9];
-//	char longitude[10];
-//	char PHG[9];
-//	char APRSIP[25];
-//	int APRSPort;
-//	char destination[7];
-//};
 
 void setSettings(bool doSet) {
 	int i = 0;

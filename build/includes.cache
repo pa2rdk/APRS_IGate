@@ -2,32 +2,32 @@
   {
     "Sourcefile": null,
     "Include": "",
-    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/cores/esp32"
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/cores/esp32"
   },
   {
     "Sourcefile": null,
     "Include": "",
-    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/variants/ttgo-lora32-v1"
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/variants/esp32"
   },
   {
     "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
     "Include": "EEPROM.h",
-    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/EEPROM/src"
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/EEPROM/src"
   },
   {
     "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
     "Include": "SPI.h",
-    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/SPI/src"
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/SPI/src"
   },
   {
     "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
     "Include": "WiFi.h",
-    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src"
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src"
   },
   {
     "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
     "Include": "Wire.h",
-    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/Wire/src"
+    "Includepath": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/Wire/src"
   },
   {
     "Sourcefile": "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/build/sketch/APRS_IGate.ino.cpp",
@@ -45,67 +45,67 @@
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/EEPROM/src/EEPROM.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/EEPROM/src/EEPROM.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/SPI/src/SPI.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/SPI/src/SPI.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src/ETH.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src/ETH.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src/WiFi.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src/WiFi.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src/WiFiAP.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src/WiFiAP.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src/WiFiClient.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src/WiFiClient.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src/WiFiGeneric.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src/WiFiGeneric.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src/WiFiMulti.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src/WiFiMulti.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src/WiFiSTA.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src/WiFiSTA.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src/WiFiScan.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src/WiFiScan.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src/WiFiServer.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src/WiFiServer.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/WiFi/src/WiFiUdp.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/WiFi/src/WiFiUdp.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/libraries/Wire/src/Wire.cpp",
+    "Sourcefile": "/Users/robertdekok/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/libraries/Wire/src/Wire.cpp",
     "Include": "",
     "Includepath": null
   },

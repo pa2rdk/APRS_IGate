@@ -1,8 +1,8 @@
 {
     "sketch": "APRS_IGate.ino",
     "programmer": "AVR ISP",
-    "port": "/dev/cu.SLAB_USBtoUART",
+    "port": "/dev/tty.SLAB_USBtoUART",
     "output": "build",
-    "board": "esp32:esp32:ttgo-lora32-v1",
-    "configuration": "FlashFreq=80,UploadSpeed=921600,DebugLevel=none"
+    "board": "esp32:esp32:esp32",
+    "configuration": "PSRAM=disabled,PartitionScheme=default,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,DebugLevel=none"
 }

@@ -7,7 +7,7 @@
 //#include <TinyLoRaESP.h>
 
 #define offsetEEPROM 0x0 /*offset config*/
-#define EEPROM_SIZE 174
+#define EEPROM_SIZE 184
 #define BUFFERSIZE 260
 #define Modem_RX 22
 #define Modem_TX 23
@@ -40,7 +40,7 @@ hw_timer_t *timer =
 # 36 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
                        ;
 
-void __attribute__((section(".iram1"))) resetModule() {
+void __attribute__((section(".iram1" "." "16"))) resetModule() {
  ets_printf("WDT Reboot\n");
  esp_restart();
 }
@@ -111,7 +111,7 @@ void setup() {
  Modem.begin(9600, 0x800001c, 22, 23);
  Modem.setTimeout(2);
 
- if (!EEPROM.begin(174))
+ if (!EEPROM.begin(184))
  {
   Serial.println("failed to initialise EEPROM"); while(1);
  }
@@ -144,7 +144,11 @@ void setup() {
  }
 
  delay(1000);
+ for (int i = 0;i<4;i++){
  setDra(storage.modemChannel, storage.modemChannel, 0, 0);
+  delay(500);
+ }
+
  Modem.println(((reinterpret_cast<const __FlashStringHelper *>(("AT+DMOSETVOLUME=8")))));
  Modem.println(((reinterpret_cast<const __FlashStringHelper *>(("AT+DMOSETMIC=8,0")))));
  Modem.println(((reinterpret_cast<const __FlashStringHelper *>(("AT+SETFILTER=1,1,1")))));
@@ -157,7 +161,7 @@ void setup() {
 
 
  // define single-channel sending
-# 179 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 183 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
  timer = timerBegin(0, 80, true); //timer 0, div 80
  timerAttachInterrupt(timer, &resetModule, true); //attach callback
  timerAlarmWrite(timer, 30 /*time in seconds to trigger the watchdog*/ * 1000 * 1000, false); //set time in us
@@ -190,6 +194,10 @@ void loop() {
   byte doSwap = 1;
   int bufpos = 0;
   while (Modem.available()) {
+   // Serial.print(buflen);
+   // Serial.print(" - ");
+   // Serial.println(doSwap);
+   delay(5);
    char ch = Modem.read();
 
    if (ch == 0xc0 && buflen>4){
@@ -202,7 +210,6 @@ void loop() {
 
    if (ch == '\n') {
     recvBuf[buflen] = 0;
-    Serial.println(recvBuf);
     if (convertPacket(buflen,bufpos)){
      digitalWrite(27, 0x1);
      send_packet();
@@ -311,7 +318,7 @@ void send_packet() {
 }
 
 void send_LoRaPacket() {
-# 347 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
+# 354 "/Users/robertdekok/Dropbox/Arduino-workspace/APRS_IGate/APRS_IGate.ino"
 }
 void display_packet() {
  Serial.println(buf);
@@ -482,23 +489,6 @@ void setDra(byte rxFreq, byte txFreq, byte rxTone, byte txTone) {
  Serial.println(buff);
  Modem.println(buff);
 }
-
-//struct StoreStruct {
-//	byte chkDigit;
-//	char SSID[25];
-//	char pass[25];
-//	char callSign[10];
-//	int modemChannel;
-//	int oledTimeout;
-//	int updateInterval;
-//	char passCode[6];
-//	char latitude[9];
-//	char longitude[10];
-//	char PHG[9];
-//	char APRSIP[25];
-//	int APRSPort;
-//	char destination[7];
-//};
 
 void setSettings(bool doSet) {
  int i = 0;

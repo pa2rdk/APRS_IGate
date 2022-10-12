@@ -6,7 +6,7 @@
 //#include <TinyLoRaESP.h>
 
 #define offsetEEPROM 0x0    //offset config
-#define EEPROM_SIZE 174
+#define EEPROM_SIZE 184
 #define BUFFERSIZE 260
 #define Modem_RX 22
 #define Modem_TX 23
@@ -146,7 +146,11 @@ void setup() {
 	}
 
 	delay(1000);
+	for (int i = 0;i<4;i++){
 	setDra(storage.modemChannel, storage.modemChannel, 0, 0);
+		delay(500);
+	}
+
 	Modem.println(F("AT+DMOSETVOLUME=8"));
 	Modem.println(F("AT+DMOSETMIC=8,0"));
 	Modem.println(F("AT+SETFILTER=1,1,1"));
@@ -208,6 +212,10 @@ void loop() {
 		byte doSwap = 1;
 		int bufpos = 0;
 		while (Modem.available()) {
+			// Serial.print(buflen);
+			// Serial.print(" - ");
+			// Serial.println(doSwap);
+			delay(5);
 			char ch = Modem.read();
 
 			if (ch == 0xc0 && buflen>4){
@@ -220,7 +228,6 @@ void loop() {
 
 			if (ch == '\n') {
 				recvBuf[buflen] = 0;
-				Serial.println(recvBuf);
 				if (convertPacket(buflen,bufpos)){
 					digitalWrite(TX_LED, HIGH);
 					send_packet();
@@ -514,23 +521,6 @@ void setDra(byte rxFreq, byte txFreq, byte rxTone, byte txTone) {
 	Serial.println(buff);
 	Modem.println(buff);
 }
-
-//struct StoreStruct {
-//	byte chkDigit;
-//	char SSID[25];
-//	char pass[25];
-//	char callSign[10];
-//	int modemChannel;
-//	int oledTimeout;
-//	int updateInterval;
-//	char passCode[6];
-//	char latitude[9];
-//	char longitude[10];
-//	char PHG[9];
-//	char APRSIP[25];
-//	int APRSPort;
-//	char destination[7];
-//};
 
 void setSettings(bool doSet) {
 	int i = 0;
